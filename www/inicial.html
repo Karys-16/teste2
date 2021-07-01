@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
+
+    <title>Blink</title>
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/stylek.css">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://localhost/tccbd/estab/consulta.php";
+            $.getJSON(url, function(result) {
+                console.log(result);
+                $.each(result, function(i, field) {
+                    
+                    console.log(result.length);
+                    // () =>{
+                    abc = 1;
+                    while(abc <= result.length){
+                        var id = field.ID_estabelecimento;
+                        var nome = field.nome_estabelecimento;
+                        var cliente = field.nome_cliente;
+                        var servico = field.Nome_servico;
+                        var endereco = field.endereco_estabelecimento;
+                        $(".minor").append("<h1 nome="+ nome +">"+ nome +"</h1> <p endereco="+ endereco + servico +">" + endereco + " • "+ servico + "</p>")
+
+                        abc++;
+                    }
+
+                        // Apesar de ter duas divs "minor", se retirasse uma delas e no select retornasse mais de um ficaria repetido em um só...
+                    
+                });
+            });
+        });
+     
+        </script>
+</head>
+<body>
+    <div class="major">
+        <img src="img/maybeinitial.png" alt="">
+        <div class="minor">
+            <div id="slider">
+                <img class="selected" src="https://www.troisbeaute.com.br/app/uploads/2020/07/istock-1180649860-1024x683.jpg" alt="Image1">
+                <img src="https://cdn.consumidormoderno.com.br/wp-content/uploads/2019/05/salao-de-beleza-edit-site.jpg" alt="Image2">
+                <img src="https://i.pinimg.com/originals/1e/20/a0/1e20a084f9c6f0095a71e9938ae4fb73.jpg" alt="Image3">
+                <img src="https://www.senacrs.com.br/fotos/cursos/1/1iStock-690532072.jpg?3858" alt="Image4">
+            </div>
+            <div id="conteudo" class="conteudo">
+                <div class="stars"></div>
+            </div>
+        </div>
+    </div> 
+
+    <script src="js/slider.js"></script>
+    
+    <nav class="links"> 
+        <ul style="max-width: 100vw;">
+                <img src="img/house.svg"><label>Início</label>
+                <img src="img/search.svg"><label id= "search">Buscar</label>
+                <img src="img/date.svg"><label id="agenda">Agenda</label>
+                <a href="perfil.html"><img src="img/user.svg"><label id="user">Perfil</label></a>    
+          </ul>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187 333" width="187" height="333">
+	<title>Novo Projeto</title>
+	<defs>
+		<image  width="187" height="333" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAAFNAQMAAABi4oyZAAAAAXNSR0IB2cksfwAAAANQTFRF99ti1oFELwAAAB9JREFUeJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAA4GIIUAARg23YgAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Background" href="#img1" x="0" y="0" />
+</svg>

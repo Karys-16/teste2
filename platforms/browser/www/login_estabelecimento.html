@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estabelecimento.css">
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $("#button2").click(function() {
+                    $("#button2").attr('disabled', 'disabled');
+                    $("#button2").css('opacity', '0');
+                    var nome = $("#nome").val();
+                    var rdbatendimento = document.getElementsByName("atendimento");
+                    for (var i = 0; i < rdbatendimento.length; i++) {
+                        if (rdbatendimento[i].checked) {
+                            var atendimento = rdbatendimento[i].value;
+                        }
+                    }
+                    var email = $("#email").val();
+                    var servico = $("#servico").val();
+                    var endereco = $("#endereco").val();
+                    var tele1 = $("#tel1").val();
+                    var tele2 = $("#tel2").val();
+                    var senha = $("#senhaC").val();	
+                    console.log(nome + " " + email + " " +atendimento + " " +endereco + " " +tele1 + " " +senha);
+                    var dataString = "nome=" + nome + "&email=" + email + "&atendimento=" + atendimento + "&servico=" + servico + "&endereco=" + endereco + "&telefone1=" + tele1 + "&telefone2=" + tele2 + "&senha=" + senha + "&insert=";	
+                    if ($.trim(nome).length > 0 & $.trim(email).length > 0 & $.trim(atendimento).length > 0 & $.trim(endereco).length > 0 & $.trim(tele1).length > 0 & $.trim(senha).length > 0){	
+                        $.ajax({
+                            type: "POST",
+                            url: "http://127.0.0.1/tccbd/estab/cadastroestab.php",
+                            data: dataString,		
+                            crossDomain: true,
+                            // cache: false,
+                        beforeSend: function() {
+                                $("#resposta").text("Conectando ao banco...");
+                                location.reload();
+                            },
+                        success: function(data) {				
+                                if ($.trim(data) == "success") {
+                                    $("#resposta").text("Dados Inseridos com sucesso");
+                                } else if ($.trim(data) == "error") {
+                                    alert("error");
+                                }
+                            }
+                        });
+                    }
+                    else
+                    {
+                    return false;
+                    }
+                });
+
+               //////////////////////////////////////////////////////////////// // LOGINNNN
+
+               $(document).ready(function() {
+                    var url = "http://localhost/tccbd/estab/loginestab.php";
+                    
+                    $("#button").click(function(){
+                        var email = $.trim($("#lemail").val());
+                        var password = $.trim($("#lsenha").val());
+
+                        $("#status").text("Buscando usuário...");
+                        var loginString = "email=" + email + "&password=" + password + "&login=";
+                        $.ajax({
+                            type: "POST",crossDomain: true,
+                            // cache: false,
+                            url: url,
+                            data: loginString,
+                            success: function(data){
+                                console.log("@" + data + "@");
+                                if($.trim(data) == "success") {
+                                    $("#status").text("Logado com Sucesso!");
+                                    localStorage.loginstatus = "true";
+                                    window.location.href = "servicos_estabelecimento.html";
+                                }
+                                else if(data == "error")
+                                {
+                                    $("#status").text("Usuário Incorreto!");
+                                }
+                            }
+                        });
+                    });
+                });
+
+
+            });
+        </script>
+    </head>
+
+    <body>
+            <img src="img/logo.png">
+            <div class="login">
+            <div class="background" id="background"></div>
+                <label id="ent" onclick="openNav()">ENTRAR</label>
+                <label id="cad" onclick="closeNav()">NOVO</label>
+            </div>
+            <div class="sidenav" id="sidenav">	 
+                <input type="text" id="lemail" placeholder="E-Mail"><i id="i" class="fas fa-envelope"></i><br><br>
+                <input type="password" id="lsenha" placeholder="Senha"><i id="i" class="fas fa-lock"></i> 
+            </div>
+            <input type="submit" id="button" value="LOGIN">
+            <label id="senha">Esqueceu sua senha?</label>
+            <label id="status"></label> 
+            
+                <div class="sidenav2" id="sidenav2">	 
+                    <input type="text" id ="nome" placeholder="Nome do Estabelecimento"><i class="fas fa-user"></i><br><br>
+                    <label id="estab">ESTABELECIMENTO:</label><i class="fas fa-building"></i><br><br>
+                    <input type="radio"  value="Delivery" name="atendimento"><label>Atendimento a Domicílio</label><br><br>  
+                    <input type="radio" value="Trabalha em casa" name="atendimento"><label>Atendimento na minha casa</label><br><br> 
+                    <input type="radio" value="Possui um local fixo" name="atendimento"><label>Atendimento em Endereço Fixo</label><br><br><br> 
+                    <input type="text" id="servico" placeholder="Seus serviços"><i class="fas fa-user"></i><br><br><br>
+                    <input type="text" id="endereco" placeholder="Endereço"><i class="fas fa-map-marker-alt"></i><br><br><br>
+                    <input type="text" id="email" placeholder="E-Mail"><i class="fas fa-envelope"></i></i><br><br><br>
+                    <input type="text" id="tel1" placeholder="Telefone"><i class="fas fa-phone"></i><br><br><br>
+                    <input type="text" id="tel2" placeholder="Telefone 2 (Opcional)"><i class="fas fa-phone"></i><br><br><br>
+                    <input type="password" id="senhaC" placeholder="Senha"><i id="i" class="fas fa-lock"></i>
+                   
+                </div>
+                <label id="resposta"></label>
+            <input type="submit" id="button2" value="CADASTRAR">
+    </body>
+
+   <script>
+    function openNav() {
+        document.getElementById("sidenav2").style.marginLeft = "0px";
+        document.getElementById("sidenav2").style.width = "0px";    
+        document.getElementById("button2").style.width = "0px";
+        document.getElementById("sidenav").style.height = "130px";
+        document.getElementById("sidenav").style.marginLeft = "30px";
+        document.getElementById("sidenav").style.width = "300px";
+        document.getElementById("button").style.width = "150px";
+        document.getElementById("background").style.left = "34px";
+        document.getElementById("cad").style.color = "#fff";
+        document.getElementById("ent").style.color = "rgb(90, 90, 90)";        
+    }
+    
+    function closeNav() {
+        document.getElementById("sidenav").style.height = "0px";
+        document.getElementById("sidenav").style.marginLeft = "0px";
+        document.getElementById("sidenav").style.width = "0px";
+        document.getElementById("button").style.width = "0px";
+        document.getElementById("sidenav2").style.marginLeft = "30px";
+        document.getElementById("sidenav2").style.width = "300px";
+        document.getElementById("button2").style.width = "150px";
+        document.getElementById("background").style.left = "196px";
+        document.getElementById("cad").style.color = "rgb(90, 90, 90)";
+        document.getElementById("ent").style.color = "#fff";
+    }
+    </script>
+    </html>
+

@@ -1,0 +1,157 @@
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+}
+.estab{
+    position: fixed;
+    width: 100%;
+    height: 86px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    box-shadow:0px 0px 16px rgba(0, 0, 0, 0.22);
+}
+.estab h2{
+    position: absolute;
+    color: rgb(48, 48, 48);
+    padding:10px;
+    font-family: Segoe UI;
+    font-weight: Bold;
+    text-transform: uppercase;
+    font-size:19px;
+    letter-spacing:1px;
+    margin-top:7px;
+}
+.estab p{
+    color: rgb(75, 75, 75);
+    padding:5px;
+    margin-top:47px;
+    font-family: Segoe UI;
+    font-weight: lighter;
+    font-size: 10.5px;
+    letter-spacing:0.8px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+.agenda{
+    width: 100%;
+    height: 75px;
+    
+}
+.serv input[type="checkbox"]{ 
+    display: none;
+}
+.serv input[type="checkbox"] + label:after{
+    content: '';
+    width: 25px;
+    height: 25px;
+    border-radius: 35%;
+    background-color: rgb(243, 243, 243);
+    border: none;
+    vertical-align: middle;
+    left: 300px; 
+    position: absolute; 
+}
+.serv input:checked + label:after{
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: #24475f;
+    background-position: center;
+    border: none;
+}
+.serv label {
+    font-family: Segoe UI;
+    font-size: 14px;
+    position: relative;
+    color:rgb(63, 63, 63);
+
+}
+.serv{
+    width: 100%;
+    height: 60px;
+    background-color: transparent;   
+    position: absolute;
+    top:95px;
+    border: none;
+    border-bottom:1px solid rgb(0, 0, 0, 0.12);
+    outline:none;
+}
+.serv label {
+    font-family: Segoe UI;
+    font-size: 14px;
+    position: relative;
+    letter-spacing: 0.5px;
+    color:rgb(63, 63, 63);
+    top: 20px;
+    padding: 0px 0px 40px 15px;
+}
+input[type="date"]{
+    margin-top: 215px;
+    position: absolute;
+    left: 15px;
+    height: 30px;
+    width: 155px;
+    background-color: transparent;
+    border: none;
+    color: rgb(87, 87, 87);
+    border-bottom:1px solid rgb(0, 0, 0, 0.12);
+    outline:none;
+    
+}
+#date{
+    position: relative;
+    top: 190px;
+    left: 15px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    position: relative;
+    letter-spacing: 0.5px;
+    color:rgb(17, 17, 17);
+}
+input[type="time"]{
+    margin-top: 215px;
+    position: absolute;
+    left: 188px;
+    height: 30px;
+    width: 155px;
+    border: none;
+    background-color: transparent;
+    color: rgb(87, 87, 87);
+    border-bottom:1px solid rgb(0, 0, 0, 0.12);
+    outline:none;
+    font-family: Segoe UI;
+}
+#time{
+    position: relative;
+    top: 190px;
+    left: 155px;
+    font-family: Segoe UI;
+    font-size: 14px;
+    position: relative;
+    letter-spacing: 0.5px;
+    color:rgb(15, 15, 15);
+}
+#save-button{
+    position: relative;
+    top:150px;
+    width: 340px;
+    height:45px;
+    margin-top: 417px;
+    margin-left:9.5px;
+    background-color: #24475f;
+    border:none;
+    color:white;
+    font-family: Segoe UI;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing:1.4px;
+    text-align: left;
+    font-weight: 550;
+}
+#save-button p{
+    margin-left: 15px;
+}
+#save-button img{
+    margin:-20px 300px;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+}

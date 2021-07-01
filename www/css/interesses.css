@@ -1,0 +1,135 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    background: rgb(255, 253, 253);
+    overflow: hidden;
+  }
+  
+  .opções {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  .loaded.opções {
+    opacity: 1;
+  }
+  
+  .opções_love .fa-check {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  
+  .opções_nope .fa-remove {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  
+  .opções--cards {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+  }
+  
+  .opções--card {
+    display: inline-block;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    background: #FFFFFF;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    box-shadow:0px 4px 17px rgba(0, 0, 0, 0.15);
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+  
+  .moving.opções--card {
+    transition: none;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+  
+  .opções--card img {
+    max-width: 100%;
+    height:220px;
+    width: 100%;
+    pointer-events: none;
+  }
+  
+  .opções--card h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+    font-family: bahnschrift;
+    color: rgb(100, 100, 100);
+  }
+  
+  .opções--card p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+    font-family: Segoe UI;
+    font-weight: lighter;
+    color:rgb(124, 124, 124);
+  }
+  
+  .opções--buttons {
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+    
+  }
+  
+  .opções--buttons button {
+    border-radius: 15%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    display: inline-block;
+    margin: 0 8px;  
+  }
+  
+  .opções--buttons button:focus {
+    outline: 0;
+  }
+  
+  .opções--buttons i {
+    font-size: 32px;
+    vertical-align: middle;
+  }
+  .opções--buttons #nope {
+    background-color: #ebebeb;
+  }
+  .opções--buttons #love {
+    background-color: #819aec;
+  }
+  
+  .fa-check {
+    color: #ebebeb;
+  }
+  
+  .fa-remove {
+    color: #dd7373;
+  }

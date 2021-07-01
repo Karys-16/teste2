@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+            
+        <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.css" />
+          <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="css/perfil.css">
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <title>PERFIL</title>
+        <script>
+                function onFinal(){
+                    var url = "http//127.0.0.1/tccbd/finalsession.php";
+                    alert("foi")
+                }
+        </script>
+    </head>
+ <body>
+<div class="perfilapp">
+    <Label>SOBRE</Label>
+    <img id="usuario" src="img/foto.jpg">
+</div>
+<div class="menuperfil">
+        <h2>BLINK</h2>
+        <p class="sobre">
+            Aplicativo desenvolvido com objetivo de ajudar na procura de estabelecimentos da área de estética!
+        </p>
+        <p class="sobre">
+            Ele é dividido para duas categorias, clientes e estabelecimentos, os dois atuam de forma paralela no mesmo app!
+        </p>
+        <p class="sobre">
+            É o mais novo lançamento da empresa Soft Inc, uma empresa recente que visa lançar produtos tecnológicos para ajudar em diversas áreas!
+        </p>
+    <nav class="links"> 
+        <ul>
+            <img src="img/home.svg"><label onclick="window.location.href='inicial.html'">Início</label>
+            <img src="img/search.svg"><label id="search">Buscar</label>
+            <img src="img/date.svg"><label id="agenda">Agenda</label> 
+            <img src="img/user.svg"><label id="user" onclick="window.location.href='perfil.html'">Perfil</label>     
+        </ul>
+    </nav>
+    </body>
+</html>

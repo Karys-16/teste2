@@ -1,0 +1,120 @@
+*, *:after, *:before {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.edit{
+width: 100vw;
+height: 100vh;
+background-color: rgb(255, 255, 255);
+}
+.top h2{
+margin: -42px 45px;
+font-family: Segoe UI;
+font-weight: Bold;
+text-transform: uppercase;
+font-size:17px;
+}
+.top i{
+margin: 21px 15px;
+color:black;
+}
+
+/* dados */
+.custom-field {
+top: 60px;
+position: relative;
+font-size: 11px;
+--field-padding: 12px;
+margin-left: 10PX;
+}
+
+.custom-field input {
+border: none;
+-webkit-appearance: none;
+-ms-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background: #f2f2f2;
+padding: var(--field-padding);
+width: 340px;
+height: 65px;
+font-family: Segoe UI;  
+outline: none;
+font-size: 13px;
+margin-top: 13px;
+}
+
+.custom-field .placeholder {
+position: absolute;
+left: var(--field-padding);
+width: calc(100% - (var(--field-padding) * 2));
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+top: 5px;
+font-family: Segoe UI;
+font-weight: 600;
+letter-spacing: 0.4px;
+line-height: 100%;
+transform: translateY(-50%);
+color: rgb(214, 214, 214);
+transition: 
+    top 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+.custom-field.one input {
+background: none;
+border: 1px solid rgb(202, 202, 202);
+transition: border-color 0.3s ease;
+}
+
+.custom-field.one input + .placeholder {
+left: 8px;
+padding: 0 5px;
+transition: 0.4s;
+}
+
+.custom-field.one input.dirty,
+.custom-field.one input:not(:placeholder-shown),
+.custom-field.one input:focus {
+border-color: #222;
+transition-delay: 0.1s
+}
+
+.custom-field.one input.dirty + .placeholder,
+.custom-field.one input:not(:placeholder-shown) + .placeholder,
+.custom-field.one input:focus + .placeholder {
+margin-top: -34px;
+font-size: 10px;
+color: #222;
+background: #fff;
+transition: 0.4s;
+width: auto
+}
+#save-button{
+    width: 340px;
+    height:45px;
+    margin-top:122px;
+    margin-left: 10px;
+    background-color: #24475f;
+    border:none;
+    color:white;
+    font-family: Segoe UI;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing:1.4px;
+    text-align: left;
+    font-weight: 550;
+}
+#save-button p{
+    margin-left: 15px;
+}
+#save-button img{
+    margin:-20px 300px;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+}

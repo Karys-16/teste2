@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+            
+        <link rel="stylesheet" type="text/css" href="fontawesome-free-5.12.0-web/css/all.css" />
+          <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
+            <link rel="stylesheet" type="text/css" href="css/perfil.css">
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <title>PERFIL</title>
+        <script>
+             $(document).ready(function() {
+            var url = "http://localhost/tccbd/estab/consulta_nome.php";
+            $.getJSON(url, function(result) {
+                console.log(result);
+
+                var id = result.ID_estabelecimento;
+                var nome = result.nome_estabelecimento;
+
+                $(".perfil label").text(" " + nome + " ");
+            });
+        });
+        </script>
+    </head>
+ <body>
+<div class="perfil">
+    <Label> </Label>
+    <img id="usuario" src="img/foto.jpg">
+    <div class="editar">
+    </div>
+</div>
+<div class="menuperfil">
+    <div>
+        <label>Favoritos</label>
+            <img id="icone" src="img/heart.svg">
+        <img id="seta" src="img/prox.svg">
+        <p>Meus salões favoritos</p>
+    </div>
+        <div>
+            <label>Minhas Compras</label>
+        <img id="icone" src="img/shop.svg">
+            <img id="seta" src="img/prox.svg">
+            <p>Meus histórico de compras</p>
+        </div>
+    <div id="notificações">
+        <label>Notificações</label>
+        <img id="icone" src="img/bell.svg">
+        <img id="seta" src="img/prox.svg">
+        <p>Minha central de notificações</p>
+        </div>
+    <br>
+        <div>
+            <label id="ajuda">Ajuda</label>
+            <img id="icone" src="img/info.svg">
+            <img id="seta" src="img/prox.svg">
+    </div>
+        <div id="sobre" onclick="window.location.href='sobre_app.html'">
+        <img id="icone" src="img/resume.svg">
+            <label>Sobre</label>
+            <img id="seta" src="img/prox.svg">
+        </div>
+    <br>
+        <div id="sair" onclick="onFinal()">
+            <label for="sair">Sair</label>
+    </div>
+    </div>
+    <nav class="links"> 
+        <ul>
+            <a href="inicial_estabelecimento.html"><img src="img/house.svg"><label>Início</label></a>
+            <a href="pesquisa_estabelecimento.html"><img src="img/search.svg"><label id= "search">Buscar</label></a>
+            <a href="agenda_estabelecimento.html"><img src="img/date.svg"><label id="agenda">Agenda</label></a>
+            <a href="perfil_estabelecimento.html"><img src="img/user.svg"><label id="user">Perfil</label></a>    
+            <!-- <img src="img/user.svg"><label id="user" onclick="location.reload()">Perfil</label>      -->
+        </ul>
+    </nav>
+    </body>
+</html>

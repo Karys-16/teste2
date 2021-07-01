@@ -1,0 +1,35 @@
+        <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="css/index.css">
+            <title>Agendamentos de atendimentos na área de estética - Blink</title>
+        </head>
+        <body>
+            <div class="fundo" id="funo">
+                <img id="foto-fundo" src="img/cabeleireiros.png">
+                <div class="container">
+                    <img id="logo" src="img/logo.png">
+                    <h1 id="title">Faça sua escolha</h1>
+                    <div id="escolhas">
+                    <a href="login_cliente.html"><div id="Escolha" class="Escolha"><h3 id="cliente">Cliente</h3></div></a>
+                    <a href="login_estabelecimento.html"><div id="Escolha2" class="Escolha2"><h3>Estabelecimento</h3></div></a>
+                </div>
+            </div> 
+        </div>
+        <script>
+            window.onload = function(){
+                document.getElementById("foto-fundo").style.filter = "blur(5px)";
+               document.getElementById("logo").style.marginLeft = "680px";
+               document.getElementById("title").style.marginLeft = "750px";
+               document.getElementById("title").style.transitionDelay = "0.25s";
+               document.getElementById('Escolha').style.marginLeft = "680px";
+               document.getElementById("Escolha").style.transitionDelay = "0.45s";
+               document.getElementById('Escolha2').style.marginLeft = "680px";
+               document.getElementById("Escolha2").style.transitionDelay = "0.65s";
+            }
+        </script>
+    </body>
+</html>

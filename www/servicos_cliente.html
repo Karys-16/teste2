@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/servico.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://127.0.0.1/tccbd/cliente/consulta_nome_cliente.php";
+            $.getJSON(url, function(result) {
+                console.log(result);
+
+                var id = result.ID_cliente;
+                var nome = result.nome_cliente;
+
+                $(".top").append("<h1> Bem-vindo(a), " + nome + "!");
+            });
+            $("#final").click(function(){
+
+                // Get the checkbox
+                var checkBox1 = document.getElementById("ser1");
+                var checkBox2 = document.getElementById("ser2");
+                var checkBox3 = document.getElementById("ser3");
+                var checkBox4 = document.getElementById("ser4");
+                var checkBox5 = document.getElementById("ser5");
+                var checkBox6 = document.getElementById("ser6");
+                var checkBox7 = document.getElementById("ser7");
+
+                if (checkBox1.checked == true){
+                    inserir(1);	
+                } 
+                if (checkBox2.checked == true){
+                    inserir(2);	
+                } 
+                if (checkBox3.checked == true){
+                    inserir(3);
+                } 
+                if (checkBox4.checked == true){
+                    inserir(4);	
+                } 
+                if (checkBox5.checked == true){
+                    inserir(5);	
+                } 
+                if (checkBox6.checked == true){
+                    inserir(6);	
+                } 
+                if (checkBox7.checked == true){
+                    inserir(7);	
+                } 
+            })
+
+            function inserir(num){
+                var dataString = "servico=" + num +  "&inserir=";
+                console.log(dataString);
+                if ($.trim(num).length > 0){	
+                    $.ajax({
+                        type: "POST",
+                        url: "http://127.0.0.1/tccbd/cliente/servico_cliente.php",
+                        data: dataString,		
+                        crossDomain: true,
+                        // cache: false,
+                    beforeSend: function() {
+                        },
+                    success: function(data) {			
+                            if ($.trim(data) == "success") {
+                                window.location.href = "inicial.html";
+                            } 
+
+                            else{
+                                console.log("error");
+                            }
+                        }
+                    });
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        });
+     
+        </script>
+    
+    <title>Serviços</title>
+</head>
+<body>
+    <div class="top">
+        <!-- <h1>Bem-vindo(a), nome!</h1> -->
+        <p>Escolha os serviços com que deseja</p>
+    </div>
+    <div class="corpo">
+        <label class="check">
+            <input type="checkbox" class="ser1" name="ser" id="ser1" value="1">
+            <label for="ser1">Manicure</label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser2" name="ser" id="ser2" value="Pedicure">
+            <label for="ser2">Pedicure</label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser3" name="ser" id="ser3" value="Esteticista">
+            <label for="ser3">Esteticista</label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser4" name="ser" id="ser4" value="Sobrancelhas">
+            <label for="ser4">Sobrancelhas</label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser5" name="ser" id="ser5" value="Barbearia (Cabeleireiro)">
+            <label for="ser5">Cabeleireiro / Barbearia </label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser6" name="ser" id="ser6" value="Massagens">
+            <label for="ser6">Massagens</label>
+        </label>
+
+        <label class="check">
+            <input type="checkbox" class="ser7" name="ser" id="ser7" value="Outro">
+            <label for="ser7">Outro</label>
+            <!-- <input type="text" id="outro"> -->
+        </label>
+
+        <input type="button" value="FINALIZAR" id="final">
+    </div>
+</body>
+</html>

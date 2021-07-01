@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<title>arrow-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { opacity: 0.941;fill: #ffffff } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="shp0" d="M21.88 12L14.36 5.77L15 5L24 12.52L15 20L14.36 19.24L21.88 13L0 13L0 12L21.88 12L21.88 12Z" />
+</svg>
